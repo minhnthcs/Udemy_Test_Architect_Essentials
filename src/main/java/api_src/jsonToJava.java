@@ -1,6 +1,5 @@
-package api;
+package api_src;
 import java.sql.*;
-
 
 public class jsonToJava {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
@@ -20,6 +19,7 @@ public class jsonToJava {
             customer.setPurchasedDate(rs.getString(2));
             customer.setAmount(rs.getInt(3));
             customer.setLocation(rs.getString(4));
+            System.out.println(customer.getAmount());
         }
         conn.close();
     }
