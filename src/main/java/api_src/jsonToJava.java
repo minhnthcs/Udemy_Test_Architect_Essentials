@@ -1,8 +1,6 @@
-package main.java;
-
+package api;
 import java.sql.*;
 
-import static java.lang.Class.forName;
 
 public class jsonToJava {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
@@ -13,13 +11,15 @@ public class jsonToJava {
 
         //object of statement class will help us to execute queries
         Statement st=conn.createStatement();
-        ResultSet rs = st.executeQuery("select * from CustomerInfo where location = \"Asia\" and PurchasedDate=curdate()");
+        ResultSet rs = st.executeQuery("select * from CustomerInfo where location = \"Asia\" and PurchasedDate=curdate() limit 1");
 //        rs.next(); // setting pointer to particular row
         while (rs.next()){
-            System.out.println(rs.getString(1));
-            System.out.println(rs.getString(2));
-            System.out.println(rs.getInt(3));
-            System.out.println(rs.getString(4));
+            CustomerDetails customer = new CustomerDetails();
+//            System.out.println(rs.getString(1));
+            customer.setCourseName(rs.getString(1));
+            customer.setPurchasedDate(rs.getString(2));
+            customer.setAmount(rs.getInt(3));
+            customer.setLocation(rs.getString(4));
         }
         conn.close();
     }
