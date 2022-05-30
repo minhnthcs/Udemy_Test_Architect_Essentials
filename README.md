@@ -8,4 +8,7 @@ Install dependencies:
 - com.fasterxml.jackson.core > jackson-core
 - com.fasterxml.jackson.core > jackson-databind
 - com.fasterxml.jackson.core > jackson-annotations
-5.
+5. Merge all json files into an only one json file, using json.simple dependency
+Install dependencies:
+- com.google.code.gson > gson
+- Apache Commons Text for remove backslash in json file
